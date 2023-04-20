@@ -1,6 +1,6 @@
 import './Navbar.css'
 
-export const Navbar = () => {
+export const Navbar = ({showCartHandler}) => {
     return (
         <>
             <header>
@@ -8,7 +8,8 @@ export const Navbar = () => {
                     <li><a href="./Shopping.html">HOME</a></li>
                     <li><a href="#">STORE</a></li>
                     <li><a href="./about.html">ABOUT</a></li>
-                    <a href="#cart" class="cart-holder">cart<span class="cart-number">0</span></a>
+                    <button  className="cart-holder" onClick={showCartHandler}>Cart
+                    <span class="cart-number">0</span></button>
                 </ul>
             </header>
         </>
