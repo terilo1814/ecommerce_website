@@ -1,0 +1,44 @@
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 40px 300px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    padding: 10px;
+}
+
+ /* .product-image {
+   
+   
+  } 
+  */
+
+.product-title:hover {
+    text-align: center;
+    margin-top: 10px;
+    animation: col;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes col {
+    from {
+        color: rgb(250, 85, 85);
+    }
+
+    to {
+        color: rgb(122, 197, 93);
+    }
+    
+}
+
+.product-price {
+    text-align: center;
+    margin-top: 10px;
+}
