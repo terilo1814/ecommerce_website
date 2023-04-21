@@ -1,41 +1,50 @@
-import './Products.css'
-import React, { useState } from 'react'
+import './Products.css';
+import React, { useContext } from 'react';
+import { CartContext } from './CartContext';
 
 export const Products = () => {
-    const [itemList, setItemList] = useState([
-        {
-            title: 'Colors',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-        },
-        {
-            title: 'Black and white Colors',
-            price: 50,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-        },
-        {
-            title: 'Yellow and Black Colors',
-            price: 70,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-        },
-        {
-            title: 'Blue Color',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-        }
-    ])
+  const { itemList, cartElements, setCartElements, setCartCount } = useContext(
+    CartContext
+  );
 
-    return (
-        <div className="products-container">
-            {itemList.map((item) =>
-                <div className="product" key={item.title}>
-                    <img className="product-image" src={item.imageUrl} alt={item.title} />
-                    <h2 className="product-title">{item.title}</h2>
-                    <p className="product-price">Price: {item.price}</p>
-                </div>
-            )}
+  const addItem = (item) => {
+    let newItem = true;
+    const newData = [...cartElements];
+    newData.forEach((data) => {
+      if (data.title === item.title) {
+        data.quantity += 1;
+        newItem = false;
+      }
+    });
+    if (newItem) {
+      item.quantity = 1;
+      newData.push(item);
+    }
+
+    setCartElements(newData);
+    setCartCount((prevCount) => prevCount + 1);
+  };
+
+  return (
+    <div className="products-container">
+      {itemList.map((item, index) => (
+        <div className="product" key={index}>
+          <h2 className="product-title">{item.title}</h2>
+          <img
+            className="product-image"
+            src={item.imageUrl}
+            alt={item.title}
+          />
+          <p className="product-price">Price: {item.price}</p>
+          <button
+            type="button"
+            className="product-cart"
+            onClick={() => addItem(item)}
+          >
+            Add to Cart
+          </button>
         </div>
-    );
-      
-    
-}
+      ))}
+    </div>
+  );
+};
