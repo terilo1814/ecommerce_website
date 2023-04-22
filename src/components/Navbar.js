@@ -2,7 +2,7 @@ import './Navbar.css';
 import { CartContext } from './CartContext';
 import { useContext } from 'react';
 
-export const Navbar = ({ showCartHandler }) => {
+export const Navbar = ({ showCartHandler,showCartButton }) => {
   const { cartCount } = useContext(CartContext);
 
   return (
@@ -12,14 +12,14 @@ export const Navbar = ({ showCartHandler }) => {
           <a href="./Shopping.html">HOME</a>
         </li>
         <li>
-          <a href="#">STORE</a>
+          <a href="./">STORE</a>
         </li>
         <li>
-          <a href="./about.html">ABOUT</a>
+          <a href="./about">ABOUT</a>
         </li>
-        <button className="cart-holder" onClick={showCartHandler}>
+        {showCartButton && <button className="cart-holder" onClick={showCartHandler}>
           Cart <span className="cart-number">{cartCount}</span>
-        </button>
+        </button>}
       </ul>
     </header>
   );
