@@ -9,7 +9,7 @@ export const Navbar = ({ showCartHandler,showCartButton }) => {
     <header>
       <ul className="header">
         <li>
-          <a href="./Shopping.html">HOME</a>
+          <a href="./home">HOME</a>
         </li>
         <li>
           <a href="./">STORE</a>

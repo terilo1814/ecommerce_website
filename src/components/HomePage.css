@@ -1,0 +1,102 @@
+*/ {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+header {
+    background-color: grey;
+}
+
+h1 {
+    padding: 40px;
+    font-size: 100px;
+    background-color: grey;
+}
+
+.latest-album {
+    display: block;
+    border: 2px solid #56CCF2;
+    padding: 15px 30px;
+    font-size: 23px;
+    font-weight: 200;
+    margin: 10px auto;
+    background: grey;
+    cursor: pointer;
+    color: white;
+    box-shadow: 3px 3px #56CCF2;
+}
+
+.play-btn {
+    cursor: pointer;
+    display: block;
+    border: 2px solid #56CCF2;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 200;
+    margin: 20px auto;
+    background: inherit;
+    color: #56CCF2;
+}
+
+.container {
+    padding: 20px 30px;
+}
+
+#tours .tour-item {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+#tours .tour-item .tour-date {
+    width: 12%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#tours .tour-item .tour-place {
+    width: 25%;
+    color: #777;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#tours .tour-item .tour-spec-place {
+    width: 53%;
+    color: #777;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#tours .tour-item .buy-btn {
+    cursor: pointer;
+    width: 20%;
+    background: #56CCF2;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer {
+    display: flex;
+    margin-top: 40px;
+    padding: 20px;
+    background:  rgb(168, 145, 145);
+}
+
+footer .footer-title {
+    /* text-align: center; */
+    color: white;
+    width: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 auto;
+}
