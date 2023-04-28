@@ -17,6 +17,10 @@ export const Navbar = ({ showCartHandler,showCartButton }) => {
         <li>
           <a href="./about">ABOUT</a>
         </li>
+        <li>
+          <a href="./contact">CONTACT US</a>
+        </li>
+
         {showCartButton && <button className="cart-holder" onClick={showCartHandler}>
           Cart <span className="cart-number">{cartCount}</span>
         </button>}

@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+ 
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+}
+.form-group label{
+   margin: 15px;
+   padding: 5px;
+   width:150px;
+}
+.form-group input{
+    width:300px;
+}
+input {
+   padding: 8px;
+   border-radius: 4px;
+   margin: 10px;
+   box-shadow: 2px 2px palegreen;
+}
+.btn{
+    margin-top: 20px;
+    width: 80px;
+    margin-left: 150px;
+}
