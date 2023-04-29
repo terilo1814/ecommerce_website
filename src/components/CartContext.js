@@ -2,9 +2,13 @@ import { createContext } from "react";
 
 export const CartContext = createContext({
     itemList: [],
-    setItemList: () => {},
+    setItemList: () => { },
     cartElements: [],
-    setCartElements: () => {},
+    setCartElements: () => { },
     cartCount: 0,
-    setCartCount: () => {}
+    setCartCount: () => { },
+    cartIsShown: false,
+    setCartIsShown: () => { },
+    showCartHandler: () => { },
+    hideCartHandler: () => { }
 });

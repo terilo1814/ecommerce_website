@@ -1,7 +1,13 @@
+*/ {
+    box-sizing: border-box;
+}
+
 .products-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 30px;
 
 }
 
@@ -10,41 +16,117 @@
     flex-direction: column;
     align-items: center;
     margin: 75px;
-    padding: 10px; 
+    padding: 10px;
+
 }
 
-/* .product-image {
-   
-   
-  } 
-  */
+.image-container {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+}
 
-.product-title{
+.product-image {
     width: 100%;
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
 }
-    
+
+
+.product-title {
+    font-size: 19px;
+    color: #333;
+    margin-bottom: 15px
+}
+
 .product-price {
     text-align: center;
     margin-top: 10px;
+}
+
+.details {
+    margin-top: -250px;
+}
+
+.details h2,
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #424040;
 }
 
 .product-cart {
     color: white;
     background-color: rgb(60, 195, 236);
     border: rgb(60, 195, 236);
-    width: 40%;
-    margin-top: 7px;
-    padding: 10px;
+    width: 45%;
+    margin-top: 30px;
+    padding: 12px;
     border-radius: 5px;
     font-size: 17px;
+
+}
+
+.cart-button {
+    color: white;
+    background-color: rgb(60, 195, 236);
+    border: rgb(60, 195, 236);
+    width: 25%;
+    margin-top: 30px;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 17px;
+
 }
 
 .product-cart:hover {
     cursor: pointer;
     color: white;
     background-color: rgb(60, 195, 236);
+}
+.cart-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(60, 195, 236);
+}
+
+.image-drawer {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+
+}
+
+.image-drawer img {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+}
+
+.prod-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.prod-container div {
+    width: 50%;
+    min-height: 30px;
+}
+
+.review h2 {
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    color: #464141;
+    font-family: 'Arial Narrow'
+}
+
+.review h3,
+h5 {
+    text-align: left;
+    margin: 10px;
+    padding: 5px;
 }

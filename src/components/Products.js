@@ -1,11 +1,10 @@
 import './Products.css';
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export const Products = () => {
-  const { itemList, cartElements, setCartElements, setCartCount } = useContext(
-    CartContext
-  );
+  const { itemList, cartElements, setCartElements, setCartCount } = useContext(CartContext);
 
   const addItem = (item) => {
     let newItem = true;
@@ -13,8 +12,12 @@ export const Products = () => {
     newData.forEach((data) => {
       if (data.title === item.title) {
         data.quantity += 1;
+        if (data.quantity > 1) {
+          data.price *= data.quantity;
+        }
         newItem = false;
       }
+
     });
     if (newItem) {
       item.quantity = 1;
@@ -23,6 +26,7 @@ export const Products = () => {
 
     setCartElements(newData);
     setCartCount((prevCount) => prevCount + 1);
+
   };
 
   return (
@@ -30,11 +34,19 @@ export const Products = () => {
       {itemList.map((item, index) => (
         <div className="product" key={index}>
           <h2 className="product-title">{item.title}</h2>
-          <img
-            className="product-image"
-            src={item.imageUrl}
-            alt={item.title}
-          />
+
+          <div className='image-container'>
+            <Link to={{
+              pathname: '/image1',
+              search: `?id=${item.id}`
+            }}>
+              <img
+                className="product-image"
+                src={item.imageUrl}
+                alt={item.title}
+              />
+            </Link>
+          </div>
           <p className="product-price">Price: {item.price}</p>
           <button
             type="button"

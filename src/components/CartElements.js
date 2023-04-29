@@ -4,7 +4,6 @@ import React, { useContext } from 'react'
 import { CartContext } from './CartContext'
 
 export const CartElements = (props) => {
-
     const { cartElements, setCartElements } = useContext(CartContext)
 
     const deleteHandler = index => {
@@ -15,7 +14,8 @@ export const CartElements = (props) => {
     return (
         <Modal onClose={props.hideCartHandler}>
 
-            {cartElements.length > 0 ? <>
+            {cartElements.length > 0 ?
+             <>
                 <div className="cart-container">
 
                     {cartElements.map((item, index) =>
@@ -34,8 +34,8 @@ export const CartElements = (props) => {
                 </div>
 
             </> : 'Nothing to display'}
-
         </Modal>
+       
 
 
     )

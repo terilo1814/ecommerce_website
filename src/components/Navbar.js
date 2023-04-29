@@ -1,6 +1,7 @@
 import './Navbar.css';
 import { CartContext } from './CartContext';
 import { useContext } from 'react';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 
 export const Navbar = ({ showCartHandler,showCartButton }) => {
   const { cartCount } = useContext(CartContext);
@@ -9,20 +10,20 @@ export const Navbar = ({ showCartHandler,showCartButton }) => {
     <header>
       <ul className="header">
         <li>
-          <a href="./home">HOME</a>
+          <NavLink to="./home" activeClassName='link'>HOME</NavLink>
         </li>
         <li>
-          <a href="./">STORE</a>
+          <NavLink to="./" exact activeClassName='link'>STORE</NavLink>
         </li>
         <li>
-          <a href="./about">ABOUT</a>
+          <NavLink to="./about" activeClassName='link'>ABOUT</NavLink>
         </li>
         <li>
-          <a href="./contact">CONTACT US</a>
+          <NavLink to="./contact" activeClassName='link'>CONTACT US</NavLink>
         </li>
 
-        {showCartButton && <button className="cart-holder" onClick={showCartHandler}>
-          Cart <span className="cart-number">{cartCount}</span>
+        {showCartButton && <button className="cart-holder" onClick={showCartHandler}>Cart
+         <span className="cart-number">{cartCount}</span>
         </button>}
       </ul>
     </header>
