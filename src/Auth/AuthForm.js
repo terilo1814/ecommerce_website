@@ -21,37 +21,44 @@ const AuthForm = () => {
         const enteredPassword = passwordInputRef.current.value;
 
         setIsLoading(true)
+        let url
         if (isLogin) {
-
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCE9Ri0f_1n-d_Z-CFFDTIrtb1pk1NRfJQ'
         }
         else {
-            fetch(
-                'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCE9Ri0f_1n-d_Z-CFFDTIrtb1pk1NRfJQ',
-                {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: enteredEmail,
-                        password: enteredPassword,
-                        returnSecureToken: true
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }).then(res => {
-                    setIsLoading(false)
-                    if (res.ok) {
-
-                    } else {
-                        return res.json().then(data => {
-                            let errorMessage = 'Authentication failed'
-                            if (data && data.error && data.error.message) {
-                                errorMessage = data.error.message
-                            }
-                            alert(errorMessage)
-                        })
-                    }
-                })
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCE9Ri0f_1n-d_Z-CFFDTIrtb1pk1NRfJQ'
         }
+        fetch(
+            url,
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: enteredEmail,
+                    password: enteredPassword,
+                    returnSecureToken: true
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                setIsLoading(false)
+                if (res.ok) {
+                    return res.json()
+                } else {
+                    return res.json().then(data => {
+                        let errorMessage = 'Authentication failed'
+                        // if (data && data.error && data.error.message) {
+                        //     errorMessage = data.error.message
+                        // }
+                        // alert(errorMessage)
+                        throw new Error(errorMessage)
+                    })
+                }
+            }).then(data => {
+                console.log(data)
+            }).catch((err) => {
+                alert(err.message)
+            })
     }
 
     return (
@@ -89,6 +96,6 @@ const AuthForm = () => {
             </section>
         </>
     );
-};
+}
 
 export default AuthForm;
