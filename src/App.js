@@ -6,6 +6,7 @@ import { Contact } from "./components/Contact";
 import { ProductDescription } from "./components/ProductDescription";
 import { CartContext } from "./components/CartContext";
 import { useState } from "react";
+import AuthForm from "./Auth/AuthForm";
 
 
 
@@ -33,26 +34,26 @@ function App() {
     },
   ])
 
-  const [cartElements, setCartElements] = useState([
-    {
-      title: 'Colors',
-      price: 100,
-      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-      quantity: 2,
-    },
-    {
-      title: 'Black and white Colors',
-      price: 50,
-      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-      quantity: 3,
-    },
-    {
-      title: 'Yellow and Black Colors',
-      price: 70,
-      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-      quantity: 1,
-    }
-  ])
+  const [cartElements, setCartElements] = useState([])
+  //   {
+  //     title: 'Colors',
+  //     price: 100,
+  //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+  //     quantity: 2,
+  //   },
+  //   {
+  //     title: 'Black and white Colors',
+  //     price: 50,
+  //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+  //     quantity: 3,
+  //   },
+  //   {
+  //     title: 'Yellow and Black Colors',
+  //     price: 70,
+  //     imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+  //     quantity: 1,
+  //   }
+  // ])
   const [cartIsShown, setCartIsShown] = useState(false)
 
   const hideCartHandler = () => {
@@ -67,9 +68,13 @@ function App() {
 
   return (
     <>
-      <CartContext.Provider value={{ itemList, setItemList, cartElements, setCartElements, cartCount, setCartCount, cartIsShown, setCartIsShown,showCartHandler,hideCartHandler }}>
+      <CartContext.Provider value={{
+        itemList, setItemList, cartElements, setCartElements,
+        cartCount, setCartCount, cartIsShown, setCartIsShown,
+        showCartHandler, hideCartHandler
+      }}>
         <Route exact path='/'>
-          <ProductPage  />
+          <ProductPage />
         </Route>
         <Route exact path='/about'>
           <About />
@@ -82,6 +87,9 @@ function App() {
         </Route>
         <Route exact path='/image1'>
           <ProductDescription />
+        </Route>
+        <Route exact path='/auth'>
+          <AuthForm />
         </Route>
       </CartContext.Provider>
     </>

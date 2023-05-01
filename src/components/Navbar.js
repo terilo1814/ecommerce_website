@@ -3,7 +3,7 @@ import { CartContext } from './CartContext';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 
-export const Navbar = ({ showCartHandler,showCartButton }) => {
+export const Navbar = ({ showCartHandler, showCartButton }) => {
   const { cartCount } = useContext(CartContext);
 
   return (
@@ -21,9 +21,12 @@ export const Navbar = ({ showCartHandler,showCartButton }) => {
         <li>
           <NavLink to="./contact" activeClassName='link'>CONTACT US</NavLink>
         </li>
+        <li>
+          <NavLink to="./auth" activeClassName='link'>PROFILE</NavLink>
+        </li>
 
         {showCartButton && <button className="cart-holder" onClick={showCartHandler}>Cart
-         <span className="cart-number">{cartCount}</span>
+          <span className="cart-number">{cartCount}</span>
         </button>}
       </ul>
     </header>

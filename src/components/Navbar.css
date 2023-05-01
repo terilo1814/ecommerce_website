@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  
+
 }
 
 header {
@@ -13,6 +13,7 @@ header {
     background: #d3a0a0;
     color: white;
 }
+
 header ul {
     z-index: 100;
     display: flex;
@@ -28,9 +29,11 @@ header ul {
     top: 0%;
     width: 100%
 }
+
 header li {
     margin: 0px 40px;
 }
+
 header ul a {
     color: rgb(243, 232, 241);
     text-decoration: none;
@@ -38,11 +41,12 @@ header ul a {
     font-size: larger;
     font-family: 'Times New Roman', Times, serif;
 }
-.cart-holder{
+
+.cart-holder {
     border: 2px solid #56CCF2;
-    color:rgb(34, 26, 26);
+    color: rgb(34, 26, 26);
     border-radius: 7px;
-    width:50px;
+    width: 50px;
     background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     padding: 5px 7px;
     position: absolute;
@@ -51,12 +55,47 @@ header ul a {
     font-size: 15px;
     cursor: pointer;
 }
-.cart-number{
+
+.cart-number {
     position: absolute;
-    top:-10px;
-    right:-18px;
+    top: -10px;
+    right: -18px;
     font-size: 20px;
 }
+
 .link {
     color: rgb(15, 15, 15);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.sign-up {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    margin-left: 200px;
+    background: rgb(109, 231, 109);
+}
+
+.sign-up:hover {
+    cursor: pointer;
+    color: white
+}
+
+.login {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    background: rgb(109, 231, 109);
+    margin-right: 100px;
+     margin-left: 10px 
+}
+
+.login:hover {
+    cursor: pointer;
+    color: white
 }

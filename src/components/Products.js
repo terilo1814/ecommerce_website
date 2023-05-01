@@ -12,18 +12,14 @@ export const Products = () => {
     newData.forEach((data) => {
       if (data.title === item.title) {
         data.quantity += 1;
-        if (data.quantity > 1) {
-          data.price *= data.quantity;
-        }
+        data.price *= data.quantity;
         newItem = false;
       }
-
     });
     if (newItem) {
       item.quantity = 1;
       newData.push(item);
     }
-
     setCartElements(newData);
     setCartCount((prevCount) => prevCount + 1);
 
@@ -51,7 +47,7 @@ export const Products = () => {
           <button
             type="button"
             className="product-cart"
-            onClick={() => addItem(item)}
+            onClick={() => addItem({ ...item })}
           >
             Add to Cart
           </button>

@@ -22,6 +22,7 @@ export const ProductDescription = (props) => {
     newData.forEach((data) => {
       if (data.title === item.title) {
         data.quantity += 1;
+        data.price *= data.quantity;
         newItem = false;
       }
     });
@@ -55,7 +56,7 @@ export const ProductDescription = (props) => {
         <div className="details">
           <h2>{item.title}</h2>
           <h3>Price:{item.price}</h3>
-          <button type="button" className="cart-button" onClick={() => addItem(item)}>
+          <button type="button" className="cart-button" onClick={() => addItem({ ...item })}>
             Add to Cart
           </button>
         </div>
