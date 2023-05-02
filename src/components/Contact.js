@@ -47,7 +47,7 @@ export const Contact = () => {
                         <label for="phone">Phone number</label>
                         <input type="number" className="form-control" id="phone" ref={phone} pattern="[1-9]{1}[0-9]{9}" required />
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={submitHandler}>Submit</button>
+                    <button type="submit" className="btn-primary" onClick={submitHandler}>Submit</button>
                 </div>
             </form>
         </>

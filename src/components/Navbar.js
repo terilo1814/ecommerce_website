@@ -2,6 +2,7 @@ import './Navbar.css';
 import { CartContext } from './CartContext';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa'
 
 export const Navbar = ({ showCartHandler, showCartButton }) => {
   const { cartCount, contextValue } = useContext(CartContext);
@@ -38,19 +39,26 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="./login" activeClassName="link">
-              <button className="btn-profile">Profile</button>
-            </NavLink>
+            <div className='right-menu'>
+              <NavLink to="./login" activeClassName="link">
+                <button className="btn-profile">Profile</button>
+              </NavLink>
+              <button className="btn-logout" onClick={logoutHandler}>Log Out</button>
+
+              {showCartButton && (
+                // <button className='cart-holder' onClick={showCartHandler}>
+                //   Cart
+                //   <span className="cart-number">{cartCount}</span>
+                // </button>
+                <>
+                  <FaShoppingCart className='cart-holder'
+                    onClick={showCartHandler} />
+
+                  <span className="cart-number">{cartCount}</span>
+                </>
+              )}
+            </div>
           </li>
-
-          <button className="btn-logout" onClick={logoutHandler}>Log Out</button>
-
-          {showCartButton && (
-            <button className="cart-holder" onClick={showCartHandler}>
-              Cart
-              <span className="cart-number">{cartCount}</span>
-            </button>
-          )}
         </ul>
       ) : (
         <ul className="header">

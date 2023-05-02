@@ -64,6 +64,7 @@ const AuthForm = () => {
                     })
                 }
             }).then(data => {
+                localStorage.setItem("token", data.idToken)
                 contextValue.login(data.idToken)
                 history.replace('/')
 

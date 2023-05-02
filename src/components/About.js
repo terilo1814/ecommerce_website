@@ -6,7 +6,7 @@ export const About = () => {
         <>
             <Navbar showCartButton={false} />
             <div className='content'>
-                <img className='image' src='https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png'></img>
+                <img className='image' src='https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png' alt=''></img>
                 <h2>About</h2>
                 <p>
                     Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows,

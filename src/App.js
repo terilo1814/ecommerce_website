@@ -5,7 +5,7 @@ import { HomePage } from "./components/HomePage";
 import { Contact } from "./components/Contact";
 import { ProductDescription } from "./components/ProductDescription";
 import { CartContext } from "./components/CartContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AuthForm from "./Auth/AuthForm";
 import { ProfileForm } from "./components/ProfileForm";
 
@@ -74,6 +74,7 @@ function App() {
     setToken(token)
   }
   const logoutHandler = () => {
+    localStorage.clear();
     setToken(null)
   }
 
@@ -83,6 +84,15 @@ function App() {
     login: loginHandler,
     logout: logoutHandler
   }
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      loginHandler(token)
+    }
+  }, [])
+
   return (
     <>
       <CartContext.Provider value={{

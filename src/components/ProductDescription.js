@@ -52,7 +52,7 @@ export const ProductDescription = (props) => {
           <img src={item.imageUrl}></img>
           <div className="image-drawer">
             {item.imageCollection.map((data) => (
-              <img src={data}></img>
+              <img src={data} ></img>
             ))}
           </div>
         </div>

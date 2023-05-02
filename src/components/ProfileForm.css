@@ -26,8 +26,7 @@
 
 .container input {
     font: inherit;
-    background-color: #f1e1fc;
-    color: #38015c;
+    background-color: white;
     border-radius: 4px;
     border: 1px solid white;
     width: 90%;
@@ -51,5 +50,6 @@
 
 .btn-pass:hover {
     background-color: rgb(168, 145, 145);
-    border-color: rgb(168, 145, 145)
+    border-color: rgb(168, 145, 145);
+    color: white;
 }

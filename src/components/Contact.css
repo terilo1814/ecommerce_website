@@ -24,9 +24,22 @@ input {
    border-radius: 4px;
    margin: 10px;
    
+   
 }
-.btn{
-    margin-top: 20px;
-    width: 80px;
-    margin-left: 150px;
+.btn-primary{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 5px;
+   padding: 13px;
+   border-radius: 5px;
+   border: none;
+   
+}
+.btn-primary:hover{
+    background: rgb(168, 145, 145);
+    cursor: pointer;
+}
+#name,#exampleInputEmail1,#phone{
+    background: white;
 }
