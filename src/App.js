@@ -1,5 +1,5 @@
 import { About } from "./components/About";
-import { Route,useHistory } from "react-router-dom/cjs/react-router-dom";
+import { Route, useHistory } from "react-router-dom/cjs/react-router-dom";
 import { ProductPage } from "./components/ProductPage";
 import { HomePage } from "./components/HomePage";
 import { Contact } from "./components/Contact";
@@ -16,7 +16,7 @@ import { ProfileForm } from "./components/ProfileForm";
 
 function App() {
 
-  const history=useHistory()
+  const history = useHistory()
 
   const [cartCount, setCartCount] = useState(0)
 
@@ -69,18 +69,20 @@ function App() {
     setCartIsShown(true)
   }
 
-  const [token, setToken] = useState(null)
+  const initialToken = localStorage.getItem('token')
+  const [token, setToken] = useState(initialToken)
 
   const usersLoggedIn = !!token
 
   const loginHandler = (token) => {
     setToken(token)
+    localStorage.setItem('token', token)
   }
+
   const logoutHandler = () => {
-    localStorage.clear();
     setToken(null)
+    localStorage.removeItem('token', token)
     history.replace('/')
-   
   }
 
   const contextValue = {
@@ -90,15 +92,6 @@ function App() {
     logout: logoutHandler
   }
 
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      loginHandler(token)
-    }
-  }, [])
-
-  
   return (
     <>
       <CartContext.Provider value={{
@@ -106,42 +99,42 @@ function App() {
         cartCount, setCartCount, cartIsShown, setCartIsShown,
         showCartHandler, hideCartHandler, contextValue
       }}>
-   
+
 
         {console.log(contextValue.isLoggedIn)}
 
         {contextValue.isLoggedIn ? (
-           <>
-              <Route exact path='/'>
-                <ProductPage />
-              </Route>
-              <Route exact path='/about'>
-                <About />
-              </Route>
-              <Route exact path='/home'>
-                <HomePage />
-              </Route>
-              <Route exact path='/contact'>
-                <Contact />
-              </Route>
-              <Route exact path='/image1'>
-                <ProductDescription />
-              </Route>
-              <Route exact path='/login'>
-                <ProfileForm />
-              </Route>
+          <>
+            <Route exact path='/'>
+              <ProductPage />
+            </Route>
+            <Route exact path='/about'>
+              <About />
+            </Route>
+            <Route exact path='/home'>
+              <HomePage />
+            </Route>
+            <Route exact path='/contact'>
+              <Contact />
+            </Route>
+            <Route exact path='/image1'>
+              <ProductDescription />
+            </Route>
+            <Route exact path='/login'>
+              <ProfileForm />
+            </Route>
           </>
-          ) : (
-            <>
-              <Route exact path='/'>
-                <AuthForm />
-              </Route>
-              <Route exact path='/forgotpassword'>
-                <ProfileForm />
-              </Route>
-              </>
+        ) : (
+          <>
+            <Route exact path='/'>
+              <AuthForm />
+            </Route>
+            <Route exact path='/forgotpassword'>
+              <ProfileForm />
+            </Route>
+          </>
         )}
-      
+
       </CartContext.Provider>
     </>
   )
