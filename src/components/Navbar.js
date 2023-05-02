@@ -16,7 +16,7 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
 
   return (
     <header>
-      {isLoggedIn ? (
+      {isLoggedIn && (
         <ul className="header">
           <li>
             <NavLink to="./home" activeClassName="link">
@@ -46,10 +46,6 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
               <button className="btn-logout" onClick={logoutHandler}>Log Out</button>
 
               {showCartButton && (
-                // <button className='cart-holder' onClick={showCartHandler}>
-                //   Cart
-                //   <span className="cart-number">{cartCount}</span>
-                // </button>
                 <>
                   <FaShoppingCart className='cart-holder'
                     onClick={showCartHandler} />
@@ -60,15 +56,15 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
             </div>
           </li>
         </ul>
-      ) : (
-        <ul className="header">
-          <li>
-            <NavLink to="./login" activeClassName="link">
-              <button className="btn-login">Login</button>
-            </NavLink>
-          </li>
-        </ul>
       )}
+      {/* // <ul className="header">
+        //   <li>
+        //     <NavLink to="./login" activeClassName="link">
+        //       <button className="btn-login">Login</button>
+        //     </NavLink>
+        //   </li>
+        // </ul> */}
+
     </header>
   );
 };
