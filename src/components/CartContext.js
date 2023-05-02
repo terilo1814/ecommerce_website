@@ -10,5 +10,9 @@ export const CartContext = createContext({
     cartIsShown: false,
     setCartIsShown: () => { },
     showCartHandler: () => { },
-    hideCartHandler: () => { }
+    hideCartHandler: () => { },
+    token: '',
+    isLoggedIn: false,
+    login: (token) => { },
+    logout: () => { }
 });

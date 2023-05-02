@@ -1,10 +1,17 @@
 import { useState } from 'react';
-
 import classes from './AuthForm.module.css';
 import { Navbar } from '../components/Navbar';
 import { useRef } from 'react';
+import { CartContext } from '../components/CartContext';
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 
 const AuthForm = () => {
+
+    const { contextValue } = useContext(CartContext)
+
+
     const emailInputRef = useRef('')
     const passwordInputRef = useRef('')
 
@@ -14,6 +21,8 @@ const AuthForm = () => {
     const switchAuthModeHandler = () => {
         setIsLogin((prevState) => !prevState);
     };
+
+    const history = useHistory()
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -55,7 +64,9 @@ const AuthForm = () => {
                     })
                 }
             }).then(data => {
-                console.log(data)
+                contextValue.login(data.idToken)
+                history.replace('/')
+
             }).catch((err) => {
                 alert(err.message)
             })
@@ -89,11 +100,18 @@ const AuthForm = () => {
                             onClick={switchAuthModeHandler}
                         >
                             {isLogin ? 'Create new account' : 'Login with existing account'}
-
                         </button>
+                        <button
+                            type='button'
+                            className={classes.toggle}>
+                            <NavLink to="./forgotPassword" activeClassName="link">
+                                {isLogin ? 'Forgot Password' : ''}
+                            </NavLink>
+                        </button>
+
                     </div>
                 </form>
-            </section>
+            </section >
         </>
     );
 }

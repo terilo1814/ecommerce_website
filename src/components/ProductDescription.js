@@ -7,13 +7,15 @@ import { CartElements } from './CartElements';
 export const ProductDescription = (props) => {
 
 
-  const { itemList, cartElements, setCartElements, setCartCount, cartIsShown, showCartHandler, hideCartHandler } = useContext(CartContext);
+  const { itemList, cartElements, setCartElements, setCartCount, cartIsShown, showCartHandler, hideCartHandler, contextValue } = useContext(CartContext);
 
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const id = queryParams.get('id');
 
+  const isLoggedIn = contextValue.isLoggedIn;
+  console.log(isLoggedIn)
 
 
   const addItem = (item) => {
@@ -43,6 +45,7 @@ export const ProductDescription = (props) => {
 
   return (
     <>
+    
       <Navbar showCartButton={true} showCartHandler={showCartHandler} />
       <div className="prod-container">
         <div>
@@ -75,6 +78,7 @@ export const ProductDescription = (props) => {
       </div>
 
       {cartIsShown && <CartElements hideCartHandler={hideCartHandler} />}
+
     </>
   );
 };

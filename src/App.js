@@ -7,6 +7,8 @@ import { ProductDescription } from "./components/ProductDescription";
 import { CartContext } from "./components/CartContext";
 import { useState } from "react";
 import AuthForm from "./Auth/AuthForm";
+import { ProfileForm } from "./components/ProfileForm";
+
 
 
 
@@ -64,15 +66,31 @@ function App() {
     setCartIsShown(true)
   }
 
+  const [token, setToken] = useState(null)
 
+  const usersLoggedIn = !!token
 
+  const loginHandler = (token) => {
+    setToken(token)
+  }
+  const logoutHandler = () => {
+    setToken(null)
+  }
+
+  const contextValue = {
+    token: token,
+    isLoggedIn: usersLoggedIn,
+    login: loginHandler,
+    logout: logoutHandler
+  }
   return (
     <>
       <CartContext.Provider value={{
         itemList, setItemList, cartElements, setCartElements,
         cartCount, setCartCount, cartIsShown, setCartIsShown,
-        showCartHandler, hideCartHandler
+        showCartHandler, hideCartHandler, contextValue
       }}>
+
         <Route exact path='/'>
           <ProductPage />
         </Route>
@@ -88,8 +106,11 @@ function App() {
         <Route exact path='/image1'>
           <ProductDescription />
         </Route>
-        <Route exact path='/auth'>
+        <Route exact path='/login'>
           <AuthForm />
+        </Route>
+        <Route exact path='/forgotpassword'>
+          <ProfileForm />
         </Route>
       </CartContext.Provider>
     </>
