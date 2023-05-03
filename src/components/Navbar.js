@@ -3,21 +3,40 @@ import { CartContext } from './CartContext';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa'
+import { useEffect, useState } from 'react';
 
 export const Navbar = ({ showCartHandler, showCartButton }) => {
   const { cartCount, contextValue } = useContext(CartContext);
+  const [logoutTimer, setLogoutTimer] = useState(null);
 
   const isLoggedIn = contextValue.isLoggedIn;
   console.log(isLoggedIn);
 
   const logoutHandler = () => {
     contextValue.logout()
+    clearTimeout(logoutTimer);
+    setLogoutTimer(null)
+
   }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      const timerId = setTimeout(() => {
+        logoutHandler()
+        alert('Your session has expired. Please login again.');
+      }, 5 * 60 * 1000)
+      setLogoutTimer(timerId)
+    }
+
+  }, [isLoggedIn])
+
 
   return (
     <header>
       {isLoggedIn && (
+
         <ul className="header">
+          <li></li>
           <li>
             <NavLink to="./home" activeClassName="link">
               HOME
@@ -38,7 +57,8 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
               CONTACT US
             </NavLink>
           </li>
-          <li>
+
+          <li className='final-li'>
             <div className='right-menu'>
               <NavLink to="./login" activeClassName="link">
                 <button className="btn-profile">Profile</button>
@@ -57,14 +77,6 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
           </li>
         </ul>
       )}
-      {/* // <ul className="header">
-        //   <li>
-        //     <NavLink to="./login" activeClassName="link">
-        //       <button className="btn-login">Login</button>
-        //     </NavLink>
-        //   </li>
-        // </ul> */}
-
     </header>
   );
 };
