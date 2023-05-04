@@ -74,7 +74,7 @@ const AuthForm = () => {
 
     return (
         <>
-            <Navbar />
+          
             <section className={classes.auth}>
                 <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
                 <form onSubmit={submitHandler}>

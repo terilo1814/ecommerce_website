@@ -8,6 +8,7 @@ import { CartContext } from "./components/CartContext";
 import { useEffect, useState } from "react";
 import AuthForm from "./Auth/AuthForm";
 import { ProfileForm } from "./components/ProfileForm";
+import { Navbar } from "./components/Navbar";
 
 
 
@@ -100,9 +101,6 @@ function App() {
         showCartHandler, hideCartHandler, contextValue
       }}>
 
-
-        {console.log(contextValue.isLoggedIn)}
-
         {contextValue.isLoggedIn ? (
           <>
             <Route exact path='/'>
@@ -126,6 +124,7 @@ function App() {
           </>
         ) : (
           <>
+         <Navbar showCartHandler={showCartHandler} />
             <Route exact path='/'>
               <AuthForm />
             </Route>

@@ -33,50 +33,49 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
 
   return (
     <header>
-      {isLoggedIn && (
+      {/* {isLoggedIn && ( */}
 
-        <ul className="header">
-          <li></li>
-          <li>
-            <NavLink to="./home" activeClassName="link">
-              HOME
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="./" exact activeClassName="link">
-              STORE
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="./about" activeClassName="link">
-              ABOUT
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="./contact" activeClassName="link">
-              CONTACT US
-            </NavLink>
-          </li>
+      <ul className="header">
+        <li></li>
+        <li>
+          <NavLink to="./home" activeClassName="link">
+            HOME
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="./" exact activeClassName="link">
+            STORE
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="./about" activeClassName="link">
+            ABOUT
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="./contact" activeClassName="link">
+            CONTACT US
+          </NavLink>
+        </li>
 
-          <li className='final-li'>
-            <div className='right-menu'>
-              <NavLink to="./login" activeClassName="link">
-                <button className="btn-profile">Profile</button>
-              </NavLink>
-              <button className="btn-logout" onClick={logoutHandler}>Log Out</button>
+        <li className='final-li'>
+          <div className='right-menu'>
+            <NavLink to="./login" activeClassName="link">
+              <button className="btn-profile">Profile</button>
+            </NavLink>
+            <button className="btn-logout" onClick={logoutHandler}>Log Out</button>
 
-              {showCartButton && (
-                <>
-                  <FaShoppingCart className='cart-holder'
-                    onClick={showCartHandler} />
-
-                  <span className="cart-number">{cartCount}</span>
-                </>
-              )}
-            </div>
-          </li>
-        </ul>
-      )}
+            {showCartButton && (
+              <>
+                <FaShoppingCart className='cart-holder'
+                  onClick={showCartHandler} />
+                <span className="cart-number">{cartCount}</span>
+              </>
+            )}
+          </div>
+        </li>
+      </ul>
+      {/* )} */}
     </header>
   );
 };
