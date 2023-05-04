@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { CartContext } from './CartContext';
 import { Navbar } from './Navbar';
 import { CartElements } from './CartElements';
+import axios from 'axios';
 
 export const ProductDescription = (props) => {
 
@@ -35,6 +36,8 @@ export const ProductDescription = (props) => {
 
     setCartElements(newData);
     setCartCount((prevCount) => prevCount + 1);
+
+
   };
 
   const item = itemList.find((item) => item.id === id);
@@ -45,7 +48,7 @@ export const ProductDescription = (props) => {
 
   return (
     <>
-    
+
       <Navbar showCartButton={true} showCartHandler={showCartHandler} />
       <div className="prod-container">
         <div>

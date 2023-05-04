@@ -10,7 +10,6 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
   const [logoutTimer, setLogoutTimer] = useState(null);
 
   const isLoggedIn = contextValue.isLoggedIn;
-  console.log(isLoggedIn);
 
   const logoutHandler = () => {
     contextValue.logout()
@@ -24,7 +23,7 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
       const timerId = setTimeout(() => {
         logoutHandler()
         alert('Your session has expired. Please login again.');
-      }, 5 * 60 * 1000)
+      }, 10 * 60 * 1000)
       setLogoutTimer(timerId)
     }
 
@@ -33,7 +32,6 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
 
   return (
     <header>
-      {/* {isLoggedIn && ( */}
 
       <ul className="header">
         <li></li>
@@ -69,13 +67,13 @@ export const Navbar = ({ showCartHandler, showCartButton }) => {
               <>
                 <FaShoppingCart className='cart-holder'
                   onClick={showCartHandler} />
+
                 <span className="cart-number">{cartCount}</span>
               </>
             )}
           </div>
         </li>
       </ul>
-      {/* )} */}
     </header>
   );
 };

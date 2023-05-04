@@ -14,5 +14,7 @@ export const CartContext = createContext({
     token: '',
     isLoggedIn: false,
     login: (token) => { },
-    logout: () => { }
+    logout: () => { },
+    emaiId: '',
+    setEmailId: () => { }
 });
