@@ -14,8 +14,10 @@ export const Products = () => {
     let newItem = true;
     console.log(cartElements)
     const newData = [...cartElements];
-    for (let data of newData) {
-      if (data.title === item.title) {
+    for (let data of newData)
+     {
+      if (data.title === item.title) 
+      {
         data.quantity += 1;
         data.price *= data.quantity;
         newItem = false;
@@ -27,8 +29,6 @@ export const Products = () => {
     }
     setCartElements(newData);
     setCartCount((prevCount) => prevCount + 1);
-
-
   };
 
   return (

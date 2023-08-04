@@ -15,7 +15,7 @@ import axios from "axios";
 
 function App() {
 
-  const CRUD_KEY = "044404abf0a94d9eb6dbd5b39df97a78";
+  const CRUD_KEY = "ff6a86ac8b1f4ca196326a6c886782aa";
   const history = useHistory()
 
   const [cartCount, setCartCount] = useState(0)
@@ -98,6 +98,8 @@ function App() {
 
   }, [cartElements])
 
+  
+
   const updateApi = async () => {
     try {
       const modifiedEmail = emailId.replace(/[.@]/g, "");
@@ -132,6 +134,7 @@ function App() {
   const loginHandler = (data) => {
     setToken(data.idToken)
     localStorage.setItem('token', data.idToken)
+
     setEmailId(data.email)
     localStorage.setItem('email', data.email)
   }

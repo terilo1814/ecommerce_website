@@ -13,6 +13,7 @@ export const ProductDescription = (props) => {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  // console.log(queryParams)
   const id = queryParams.get('id');
 
   const isLoggedIn = contextValue.isLoggedIn;
